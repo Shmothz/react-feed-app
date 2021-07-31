@@ -1,6 +1,6 @@
-import {newsReducer} from './Reducers/news-reducer';
-import {profileReducer} from './Reducers/profile-reducer';
-import {mainReducer} from './Reducers/main-reducer';
+import {newsReducer} from './reducers/news-reducer';
+import {profileReducer} from './reducers/profile-reducer';
+import {mainReducer} from './reducers/main-reducer';
 import {applyMiddleware, combineReducers, createStore} from 'redux';
 import thunkMiddleware from 'redux-thunk'
 

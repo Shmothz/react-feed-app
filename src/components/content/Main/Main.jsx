@@ -1,7 +1,7 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss';
 
-const Main = () => {
+export const Main = () => {
 
   const styles = createUseStyles({
     title: {
@@ -19,12 +19,10 @@ const Main = () => {
 
   return (<div className={styles.wrapper}>
     <h2 className={styles.title}>
-      Главная страница
+      Main page
     </h2>
     <span>
-      Главная страница, здесь можно вывести какую-нибудь информацию, но я этого делать не буду
+      I don't want what to do here.
     </span>
   </div>)
 }
-
-export default Main

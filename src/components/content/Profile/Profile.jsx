@@ -1,7 +1,7 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss';
 
-const Profile = (props) => {
+export const Profile = (props) => {
   const profileData = props.profileData
 
   const styles = createUseStyles({
@@ -37,5 +37,3 @@ const Profile = (props) => {
     </div>
   </div>)
 }
-
-export default Profile
