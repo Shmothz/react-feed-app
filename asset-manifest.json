@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/static/js/main.59a4ff24.chunk.js",
-    "main.js.map": "/static/js/main.59a4ff24.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.f35b0b1e.js",
-    "runtime-main.js.map": "/static/js/runtime-main.f35b0b1e.js.map",
-    "static/css/2.c09b5ca6.chunk.css": "/static/css/2.c09b5ca6.chunk.css",
-    "static/js/2.a6b1b720.chunk.js": "/static/js/2.a6b1b720.chunk.js",
-    "static/js/2.a6b1b720.chunk.js.map": "/static/js/2.a6b1b720.chunk.js.map",
-    "static/js/3.198170bd.chunk.js": "/static/js/3.198170bd.chunk.js",
-    "static/js/3.198170bd.chunk.js.map": "/static/js/3.198170bd.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.c09b5ca6.chunk.css.map": "/static/css/2.c09b5ca6.chunk.css.map",
-    "static/css/main.6dea0f05.chunk.css.map": "/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.a6b1b720.chunk.js.LICENSE.txt": "/static/js/2.a6b1b720.chunk.js.LICENSE.txt"
+    "main.css": "/react-feed-app/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/react-feed-app/static/js/main.59a4ff24.chunk.js",
+    "main.js.map": "/react-feed-app/static/js/main.59a4ff24.chunk.js.map",
+    "runtime-main.js": "/react-feed-app/static/js/runtime-main.6b828cc5.js",
+    "runtime-main.js.map": "/react-feed-app/static/js/runtime-main.6b828cc5.js.map",
+    "static/css/2.c09b5ca6.chunk.css": "/react-feed-app/static/css/2.c09b5ca6.chunk.css",
+    "static/js/2.50f425b0.chunk.js": "/react-feed-app/static/js/2.50f425b0.chunk.js",
+    "static/js/2.50f425b0.chunk.js.map": "/react-feed-app/static/js/2.50f425b0.chunk.js.map",
+    "static/js/3.198170bd.chunk.js": "/react-feed-app/static/js/3.198170bd.chunk.js",
+    "static/js/3.198170bd.chunk.js.map": "/react-feed-app/static/js/3.198170bd.chunk.js.map",
+    "index.html": "/react-feed-app/index.html",
+    "static/css/2.c09b5ca6.chunk.css.map": "/react-feed-app/static/css/2.c09b5ca6.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/react-feed-app/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.50f425b0.chunk.js.LICENSE.txt": "/react-feed-app/static/js/2.50f425b0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f35b0b1e.js",
+    "static/js/runtime-main.6b828cc5.js",
     "static/css/2.c09b5ca6.chunk.css",
-    "static/js/2.a6b1b720.chunk.js",
+    "static/js/2.50f425b0.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
     "static/js/main.59a4ff24.chunk.js"
   ]
