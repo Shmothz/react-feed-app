@@ -4,12 +4,12 @@ const instance = axios.create({
   baseURL: "https://newsapi.org/v2/",
 })
 
-const apiKey = '5e7dc4bb93244b698cca91d69ac8aabd' // пока что не уверен, что надо так
+const API_KEY = '5e7dc4bb93244b698cca91d69ac8aabd' // пока что не уверен, что надо так
 
 export const newsAPI = {
   getNews (country, pageSize) {
     const params = new URLSearchParams({
-      apiKey,
+      apiKey: API_KEY,
       country,
       pageSize
     })
@@ -17,7 +17,7 @@ export const newsAPI = {
   },
   getFilterNews (country, pageSize, q) {
     const params = new URLSearchParams({
-      apiKey,
+      apiKey: API_KEY,
       country,
       pageSize,
       q

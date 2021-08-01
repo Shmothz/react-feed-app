@@ -1,18 +1,10 @@
 import React from 'react'
 import {createUseStyles} from 'react-jss';
+import {objStyles} from './styles';
 
 export const Main = () => {
 
-  const styles = createUseStyles({
-    title: {
-      margin: '0',
-    },
-    wrapper: {
-      display: 'flex',
-      alignItems: 'center',
-      flexDirection: 'column'
-    }
-  })()
+  const styles = createUseStyles(objStyles)()
 
   return (<div className={styles.wrapper}>
     <h2 className={styles.title}>

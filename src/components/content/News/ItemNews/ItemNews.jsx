@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Modal} from 'antd';
+import {Button, Modal} from 'antd';
 import {createUseStyles} from 'react-jss';
 import {objStyles} from './styles';
 
@@ -24,8 +24,8 @@ export const ItemNews = (props) => {
   return (
     <>
       <div
-           className={props.className.tab}
-           onClick={showModal}>
+        className={props.className.tab}
+        onClick={showModal}>
         <img src={props.urlToImage}
              alt={'preview'}
              className={props.className.img}
@@ -34,7 +34,18 @@ export const ItemNews = (props) => {
           {props.elem.title}
         </h3>
       </div>
-      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} title=''>
+      <Modal visible={isModalVisible}
+             onOk={handleOk}
+             onCancel={handleCancel}
+             title='An unnecessary article for anyone'
+             cancelText=''
+             closable={false}
+             footer={[
+               <Button key="back" onClick={handleCancel}>
+                 Close
+               </Button>
+             ]}
+      >
         <img
           className={styles.img}
           src={props.elem.urlToImage}

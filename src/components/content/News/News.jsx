@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux';
 import {createUseStyles} from 'react-jss';
 import {objStyles} from './styles';
@@ -19,27 +19,25 @@ export const News = () => {
 
   const [offset, setOffset] = useState(OFFSET)
 
-  useEffect(async () => {
-    await dispatch(getNewsTC('us', offset))
-    setOffset(offset + OFFSET)
-  }, [])
-
-  const getNews = async () => {
-    await dispatch(getNewsTC('us', offset))
+  const getNews = () => {
+    dispatch(getNewsTC('us', offset))
     setOffset(offset + OFFSET)
   }
+
+  // TODO: избавиться от отсутствия зависимости
+  useEffect(getNews, [])
 
   const styles = createUseStyles(objStyles)()
 
   return (
     <div className={styles.wrapper}>
       <Filter offset={offset}/>
+      <Feed news={data.news}/>
       {
         data.isFetching
           ? <Space size="middle"><Spin size="large"/></Space>
-          : <Feed news={data.news}/>
+          : null
       }
-
       <Button onClick={getNews} type="primary">Show more</Button>
     </div>
   )

@@ -1,22 +1,42 @@
 import React from 'react'
 import {Avatar} from 'antd'
-import {Descriptions} from 'antd'
+import {DatePicker} from 'antd'
+import {Input} from 'antd'
+import moment from 'moment';
+import {createUseStyles} from 'react-jss';
+import {objStyles} from './styles';
 
-export const Profile = (props) => {
-  const profileData = props.profileData
+const objLabels = {
+  firstName: 'My name',
+  secondName: 'My last name',
+  birthday: 'Birth date',
+  avatar: 'Avatar',
+  status: 'Status',
+  country: 'Country',
+  city: 'City'
+}
 
-  return (<>
-    <Avatar shape="square" size={64} src={profileData.avatar}/>
-    <Descriptions title="My profile info">
-      <Descriptions.Item label="Name">{profileData.firstName} {profileData.secondName}</Descriptions.Item>
-      <Descriptions.Item label="Status">{profileData.status}</Descriptions.Item>
-      <Descriptions.Item label="Date of birth">
-        {(profileData.birthday === undefined || profileData.birthday === null)
-          ? ' birthday is unknown'
-          : profileData.birthday
-        }
-      </Descriptions.Item>
-      <Descriptions.Item label="Live">{profileData.country}, {profileData.city}</Descriptions.Item>
-    </Descriptions>
-  </>)
+export const Profile = ({profileData}) => {
+
+  const styles = createUseStyles(objStyles)()
+
+  return (
+    <div className={styles.wrapper}>
+      <Avatar shape="square" size={64} src={profileData.avatar}/>
+      {
+        Object.keys(profileData).map((key, index) => <div key={index} className={styles.item}>
+            {(key === 'birthday')
+              ? profileData[key]
+                ? <DatePicker style={{width: '50%'}}
+                              placeholder="Basic usage"
+                              disabled
+                              value={moment(new Date(profileData.birthday))}/>
+                : <Input value='Birth date is unknown' disabled addonBefore={objLabels[key]}/>
+              : (key === 'avatar') ? null :
+                <Input value={profileData[key]} disabled addonBefore={objLabels[key]}/>
+            }
+          </div>
+        )
+      }
+    </div>)
 }

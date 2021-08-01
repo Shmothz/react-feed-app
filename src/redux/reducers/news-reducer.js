@@ -1,48 +1,48 @@
 import {newsAPI} from '../../api/api'
 
-const GET_NEWS = 'news/GET_NEWS'
-const GET_FILTER_NEWS = 'news/GET_FILTER_NEWS'
-const TOGGLE_IS_FETCHING = 'news/TOGGLE_IS_FETCHING'
+const SET_NEWS = 'news/SET_NEWS'
+const SET_FILTER_NEWS = 'news/SET_FILTER_NEWS'
+const SET_IS_FETCHING = 'news/SET_IS_FETCHING'
 
 let initialState = {
   news: [],
   isFetching: false
 }
 
-export const newsReducer = (state = initialState, {type,news,isFetching}) => {
+export const newsReducer = (state = initialState, {type, news, isFetching}) => {
   switch (type) {
-    case GET_NEWS:
+    case SET_NEWS:
       return {
         ...state,
         news: [...news]
       }
-    case GET_FILTER_NEWS:
+    case SET_FILTER_NEWS:
       return {
         ...state,
         news: [...news]
       }
-    case TOGGLE_IS_FETCHING:
+    case SET_IS_FETCHING:
       return {
         ...state,
-        isFetching: isFetching
+        isFetching
       }
     default:
       return state
   }
 }
 
-const getUsersAC = (news) => ({type: GET_NEWS, news})
-const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+const getUsersAC = (news) => ({type: SET_NEWS, news})
+const setIsFetchingAC = (isFetching) => ({type: SET_IS_FETCHING, isFetching})
 
 export const getNewsTC = (country,pageSize) => async (dispatch) => {
-  dispatch(toggleIsFetchingAC(true))
+  dispatch(setIsFetchingAC(true))
   const res = await newsAPI.getNews(country,pageSize)
   dispatch(getUsersAC(res.data.articles))
-  dispatch(toggleIsFetchingAC(false))
+  dispatch(setIsFetchingAC(false))
 }
 export const getNewsWithFilterTC = (country,pageSize,q) => async (dispatch) => {
-  dispatch(toggleIsFetchingAC(true))
+  dispatch(setIsFetchingAC(true))
   const res = await newsAPI.getFilterNews(country,pageSize,q)
   dispatch(getUsersAC(res.data.articles))
-  dispatch(toggleIsFetchingAC(false))
+  dispatch(setIsFetchingAC(false))
 }
