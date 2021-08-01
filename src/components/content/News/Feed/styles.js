@@ -1,7 +1,6 @@
 export const objStyles = {
   wrapper: {
-    maxWidth: '1100px',
-    minWidth: '340px',
+    minWidth: '260px',
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'flex-start'

@@ -1,43 +1,39 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {createUseStyles} from 'react-jss'
-import {Navigation} from './Navigation'
 import {objStyles} from './styles'
 import {Logo} from './Logo'
+import {MenuComponent} from './Menu/index'
 
-const SANDWICH_ADDRESS = 'https://e7.pngegg.com/pngimages/252/694/png-clipart-line-product-design-angle-line-angle-symmetry.png'
-const CROSS_ADDRESS = 'http://watchfit.com/wp-content/uploads/2015/03/healthy-lunch-sandwiches2.jpg'
+import {Dropdown, Menu} from 'antd'
+import {BarsOutlined} from '@ant-design/icons'
+import 'antd/dist/antd.css'
+import {NavLink} from 'react-router-dom';
 
-export const Header = () => {
+export const HeaderComponent = () => {
 
   const styles = createUseStyles(objStyles)()
 
-  const [modalWindow, setModalWindow] = useState(false)
-
-  const handleOpen = () => {
-    setModalWindow(true)
-  }
-  const handleClose = () => {
-    setModalWindow(false)
-  }
-
   return (<div className={styles.wrapper}>
     <Logo className={styles.logo}/>
-    <div className={styles.menuWrapper}>
-      <img
-        src={
-          modalWindow
-            ? SANDWICH_ADDRESS
-            : CROSS_ADDRESS
-        }
-        alt={'sandwich'}
-        className={styles.imgSandwich}
-        onClick={
-          modalWindow
-            ? handleClose
-            : handleOpen}/>
-      {
-        modalWindow && <Navigation onClick={handleClose}/>
-      }
+    <div className={styles.menu}>
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['3']}>
+        <Menu.Item key="0">
+          <NavLink to='/'> Main </NavLink>
+        </Menu.Item>
+        <Menu.Item key="1">
+          <NavLink to='/profile'> My profile </NavLink>
+        </Menu.Item>
+        <Menu.Item key="3">
+          <NavLink to='/news'> News </NavLink>
+        </Menu.Item>
+      </Menu>
     </div>
+    {/*<div className={styles.sandwich}>*/}
+    {/*  <Dropdown overlay={<MenuComponent/>} trigger={['click']}>*/}
+    {/*    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>*/}
+    {/*      <BarsOutlined style={{fontSize: '36px'}}/>*/}
+    {/*    </a>*/}
+    {/*  </Dropdown>*/}
+    {/*</div>*/}
   </div>)
 }

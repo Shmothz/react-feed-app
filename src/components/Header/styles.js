@@ -1,27 +1,16 @@
 export const objStyles = {
   wrapper: {
-    maxWidth: '1100px',
-    minWidth: '320px',
-    margin: '0 auto',
-    background: {
-      color: '#6666ff'
-    },
     display: 'flex',
     justifyContent: 'space-between'
   },
   logo: {
-    width: '45px',
-    height: '45px'
+    width: '50px',
+    height: '50px'
   },
-  menuWrapper : {
-    position: 'relative',
-    width: '167px'
-  },
-  imgSandwich: {
-    width: '45px',
-    heigth: '45px',
-    position: 'absolute',
-    top: '0',
-    right: '0'
+  menu: {
+    width: '10px',
+    '@media (min-width: 480px)': {
+      width: '248px'
+    }
   }
 }

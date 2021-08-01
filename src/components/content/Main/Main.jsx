@@ -5,15 +5,12 @@ export const Main = () => {
 
   const styles = createUseStyles({
     title: {
-      margin: '0'
+      margin: '0',
     },
     wrapper: {
-      background: {
-        color: '#ffebe8'
-      },
-      minWidth: '420px',
-      maxWidth: '1100px',
-      margin: '0 auto'
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'column'
     }
   })()
 

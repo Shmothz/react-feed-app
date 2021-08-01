@@ -1,8 +1,12 @@
 import React, {useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {getNewsWithFilterTC} from '../../../../redux/reducers/news-reducer';
+import {useDispatch} from 'react-redux'
+import {getNewsWithFilterTC} from '../../../../redux/reducers/news-reducer'
+import {Input} from 'antd'
+
+const {Search} = Input
 
 export const Filter = ({offset}) => {
+
 
   const [filter, setFilter] = useState('')
 
@@ -14,14 +18,18 @@ export const Filter = ({offset}) => {
 
   const getFilterNews = () => {
     dispatch(getNewsWithFilterTC('us', offset, filter))
+    setFilter('')
   }
 
   return (<div>
-    Filter: <input
-    onChange={updateFilter}
-    name='filter'
-    value={filter}
-  />
-    <button onClick={getFilterNews} disabled={!filter}>Search</button>
+    <Search
+      placeholder={'Search string'}
+      value={filter}
+      onChange={updateFilter}
+      allowClear
+      enterButton="Search"
+      size="large"
+      onSearch={getFilterNews}
+    />
   </div>)
 }

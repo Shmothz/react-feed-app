@@ -5,6 +5,8 @@ import {objStyles} from './styles';
 import {Feed} from './Feed';
 import {Filter} from './Filter';
 import {getNewsTC} from '../../../redux/reducers/news-reducer';
+import {Button} from 'antd'
+import {Spin, Space} from 'antd';
 
 const OFFSET = 5
 
@@ -16,22 +18,37 @@ export const News = () => {
   console.log(data)
 
   const [offset, setOffset] = useState(OFFSET)
+  const [isFetching, toggleIsFetching] = useState(false)
 
-  useEffect(() => {
-    dispatch(getNewsTC('us',offset))
+  useEffect(async () => {
+    toggleIsFetching(true)
+    await dispatch(getNewsTC('us', offset))
     setOffset(offset + OFFSET)
-  },[])
+    toggleIsFetching(false)
+  }, [])
 
-  const getNews = () => {
-    dispatch(getNewsTC('us', offset))
+  const getNews = async () => {
+    toggleIsFetching(true)
+    await dispatch(getNewsTC('us', offset))
     setOffset(offset + OFFSET)
+    toggleIsFetching(false)
   }
 
   const styles = createUseStyles(objStyles)()
 
-  return (<div className={styles.wrapper}>
-    <Filter offset={offset} />
-    <Feed news={data}/>
-    <button onClick={getNews} className={styles.btn}>Show more</button>
-  </div>)
+  return (
+    <div className={styles.wrapper}>
+      <Filter offset={offset}/>
+      {
+        isFetching
+          ? <Space size="middle"><Spin size="large"/></Space>
+          : <Feed news={data}/>
+      }
+
+      <Button onClick={getNews} type="primary">Show more</Button>
+    </div>
+  )
 }
+
+
+
