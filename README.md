@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+Тестовое задание.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Само задание:
 
-## Available Scripts
+Для новостей использовать API https://newsapi.org/.
 
-In the project directory, you can run:
+Мы от тебя ждем react приложение состоящие из 2 экранов,приложение должно быть с адаптивной версткой, в мобильной версии приложения должен присутствовать бургер меню (ниже описаны экраны и их содержание).
 
-### `yarn start`
+1. Лента новостей:
+На данном экране должна быть реализована строка поиска с кнопкой "Поиск" новостей по ключевым словам, например, "Apple"
+Далее должна быть реализована лента новостей где каждая новость представляет из себя карточку в который есть 1) картинка новости, 2) название новости и заголовок. Так же при нажатие на новость она должна раскрываться в полноразмерный вид, где должна быть так же картинка, название новости и текст самой новости в другом виде, более удобном для чтения и восприятия.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. О себе
+Данный экран должен содержать информацию о себе и твою картинку, оформи экран так, как видишь профиль в своем приложении.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Комментарии по поводу кода:
+1. Профиль пользователя не подгружается с сервера , данные хранятся в profile-reducer как initialState.
+2. Использовался Ant Design для адаптивной верстки , рассматривалось на width: 420px и десктопной версии.
+3. Ответом с сервера в каждой новости была неполная статья , сокращенно колличество символов ( пример: +[3432 chars] ) , на это мне не повлиять.
+4. Реализован переход на оффициальный сайт публикации статьи , если вдруг очень захотелось почитать.
+5. При клике на интересующую статью открывается modal-window , он же lightbox в реализации Ant Design.
