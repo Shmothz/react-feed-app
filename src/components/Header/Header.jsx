@@ -2,10 +2,8 @@ import React, {useEffect, useState} from 'react'
 import {createUseStyles} from 'react-jss'
 import {objStyles} from './styles'
 import {Logo} from './Logo'
-import {MenuComponent} from './Menu/index'
 
-import {Dropdown, Menu} from 'antd'
-import {BarsOutlined} from '@ant-design/icons'
+import { Menu} from 'antd'
 import 'antd/dist/antd.css'
 import {NavLink} from 'react-router-dom';
 
@@ -28,12 +26,5 @@ export const HeaderComponent = () => {
         </Menu.Item>
       </Menu>
     </div>
-    {/*<div className={styles.sandwich}>*/}
-    {/*  <Dropdown overlay={<MenuComponent/>} trigger={['click']}>*/}
-    {/*    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>*/}
-    {/*      <BarsOutlined style={{fontSize: '36px'}}/>*/}
-    {/*    </a>*/}
-    {/*  </Dropdown>*/}
-    {/*</div>*/}
   </div>)
 }

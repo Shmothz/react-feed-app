@@ -18,20 +18,15 @@ export const News = () => {
   console.log(data)
 
   const [offset, setOffset] = useState(OFFSET)
-  const [isFetching, toggleIsFetching] = useState(false)
 
   useEffect(async () => {
-    toggleIsFetching(true)
     await dispatch(getNewsTC('us', offset))
     setOffset(offset + OFFSET)
-    toggleIsFetching(false)
   }, [])
 
   const getNews = async () => {
-    toggleIsFetching(true)
     await dispatch(getNewsTC('us', offset))
     setOffset(offset + OFFSET)
-    toggleIsFetching(false)
   }
 
   const styles = createUseStyles(objStyles)()
@@ -40,9 +35,9 @@ export const News = () => {
     <div className={styles.wrapper}>
       <Filter offset={offset}/>
       {
-        isFetching
+        data.isFetching
           ? <Space size="middle"><Spin size="large"/></Space>
-          : <Feed news={data}/>
+          : <Feed news={data.news}/>
       }
 
       <Button onClick={getNews} type="primary">Show more</Button>
